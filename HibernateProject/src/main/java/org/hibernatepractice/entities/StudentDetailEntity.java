@@ -1,14 +1,25 @@
-package org.hibernatepractice;
+package org.hibernatepractice.entities;
 
-public class StudentDetailsDto {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "studentdetail")
+public class StudentDetailEntity {
+    public StudentDetailEntity() {
+    }
+
+    public StudentDetailEntity(Builder builder) {
+        this.name = builder.name;
+        this.sAge = builder.sAge;
+        this.rollNo = builder.rollNo;
+    }
+    @Id
     private int rollNo;
     private String name;
     private int sAge;
-    public StudentDetailsDto(Builder builder) {
-        this.rollNo = builder.rollNo;
-        this.name = builder.name;
-        this.sAge = builder.sAge;
-    }
+
     public String getName() {
         return name;
     }
@@ -62,8 +73,9 @@ public class StudentDetailsDto {
             return this;
         }
 
-        public StudentDetailsDto build() {
-            return new StudentDetailsDto(this);
+        public StudentDetailEntity build() {
+            return new StudentDetailEntity(this);
         }
     }
+
 }
