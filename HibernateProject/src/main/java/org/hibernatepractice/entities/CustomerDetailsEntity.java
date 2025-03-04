@@ -4,8 +4,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+
+import java.util.List;
 
 // This class shows how to define specific table name which differs from the entity name and specify different column names than in entity
 @Entity
@@ -23,6 +26,7 @@ public class CustomerDetailsEntity {
         this.mobileNumber = builder.mobileNumber;
         this.isActive = builder.isActive;
         this.address=builder.address;
+        this.orders=builder.orders;
     }
 
     @Id
@@ -36,6 +40,8 @@ public class CustomerDetailsEntity {
     @Transient
     private Boolean isActive;
     private Address address;
+    @OneToMany
+    private List<OrderEntity> orders;
 
     public int getId() {
         return id;
@@ -85,6 +91,14 @@ public class CustomerDetailsEntity {
         this.address = address;
     }
 
+    public List<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderEntity> orders) {
+        this.orders = orders;
+    }
+
     @Override
     public String toString() {
         return "CustomerDetailsEntity{" +
@@ -94,6 +108,7 @@ public class CustomerDetailsEntity {
                 ", mobileNumber='" + mobileNumber + '\'' +
                 ", isActive=" + isActive +
                 ", address=" + address +
+                ", orders=" + orders +
                 '}';
     }
 
@@ -105,6 +120,7 @@ public class CustomerDetailsEntity {
         private String mobileNumber;
         private Boolean isActive;
         private Address address;
+        private List<OrderEntity> orders;
 
         public Builder id(int id) {
             this.id = id;
@@ -133,6 +149,11 @@ public class CustomerDetailsEntity {
 
         public Builder address(Address address) {
             this.address = address;
+            return this;
+        }
+
+        public Builder orders(List<OrderEntity> order) {
+            this.orders=order;
             return this;
         }
 
