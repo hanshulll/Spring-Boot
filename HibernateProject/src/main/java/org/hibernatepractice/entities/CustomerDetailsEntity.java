@@ -40,7 +40,7 @@ public class CustomerDetailsEntity {
     @Transient
     private Boolean isActive;
     private Address address;
-    @OneToMany
+    @OneToMany(mappedBy = "customerDetails")
     private List<OrderEntity> orders;
 
     public int getId() {
