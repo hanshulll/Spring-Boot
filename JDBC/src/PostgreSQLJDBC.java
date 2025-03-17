@@ -12,8 +12,8 @@ public class PostgreSQLJDBC {
      */
 
     static final String DB_URL = "jdbc:postgresql://localhost:5432/demo";
-    static final String USER = "hanshulchandel";
-    static final String PASSWORD = "ServBay.dev";
+    static final String USER = "{{userName}}";
+    static final String PASSWORD = "{{password}}";
     static final String CREATE_DATA_QUERY = "insert into student values(6, 'Alex', 69)";
     static final String READ_DATA_QUERY = "select * from student";
     static final String UPDATE_DATA_QUERY = "update student set sname='John' where sid=6";
