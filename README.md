@@ -41,7 +41,7 @@ To run any project, follow these general steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/spring-boot-learning.git
+   git clone https://github.com/hanshulll/Spring-Boot.git
    ```
 
 2. Navigate to the specific project folder:
@@ -64,7 +64,7 @@ To run any project, follow these general steps:
 
 Open your browser and navigate to http://localhost:8080 (or another port if specified in the application).
 
-📝 Contributing
+## 📝 Contributing
 While this is a personal project to track my learning, feel free to fork the repository, create pull requests, or raise issues if you have suggestions or improvements to share. I appreciate any feedback!
 
 <!-- 
