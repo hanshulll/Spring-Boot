@@ -1,6 +1,7 @@
 package org.hibernatepractice.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -22,7 +23,7 @@ public class StudentDetailEntity {
     private int rollNo;
     private String name;
     private int sAge;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private LaptopEntity laptop;
 
     public String getName() {
@@ -59,10 +60,11 @@ public class StudentDetailEntity {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "StudentDetailEntity{" +
                 "rollNo=" + rollNo +
                 ", name='" + name + '\'' +
                 ", sAge=" + sAge +
+                ", laptop=" + laptop +
                 '}';
     }
 
